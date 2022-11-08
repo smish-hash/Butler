@@ -6,9 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import com.smish.butler.base.BaseFragment
 import com.smish.butler.databinding.FragmentCurrencyBinding
 
-class CurrencyFragment : Fragment() {
+class CurrencyFragment : BaseFragment() {
     private var _binding: FragmentCurrencyBinding? = null
     private val binding get() = _binding!!
     private val viewModel: CurrencyViewModel by viewModels()

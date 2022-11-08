@@ -1,15 +1,15 @@
-package com.smish.butler.ui.news
+package com.smish.butler.news.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import com.smish.butler.base.BaseFragment
 import com.smish.butler.databinding.FragmentNewsBinding
 
 
-class NewsFragment : Fragment() {
+class NewsFragment : BaseFragment() {
     private var _binding: FragmentNewsBinding? = null
     private val binding get() = _binding!!
     private val viewModel: NewsViewModel by viewModels()
