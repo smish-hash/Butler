@@ -3,6 +3,7 @@ package com.smish.butler.base
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -39,6 +40,10 @@ abstract class BaseFragment: Fragment() {
         if (progressDialog?.isShowing == true){
             progressDialog?.dismiss()
         }
+    }
+
+    fun debugLog(tag: String, message: String) {
+        Log.d(tag, message)
     }
 
     fun showSmallToast(message: String) {

@@ -10,11 +10,11 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class UsecaseModule {
+class UseCaseModule {
 
     @Singleton
     @Provides
-    fun provideNewsHeadlinesUsecase(newsRepository: NewsRepository): GetNewsHeadlines {
+    fun provideNewsHeadlinesUseCase(newsRepository: NewsRepository): GetNewsHeadlines {
         return GetNewsHeadlines(newsRepository)
     }
 }
