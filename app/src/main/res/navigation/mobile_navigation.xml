@@ -9,7 +9,15 @@
         android:id="@+id/nav_news"
         android:name="com.smish.butler.news.ui.NewsFragment"
         android:label="@string/menu_news"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_nav_news_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_currency"
@@ -22,4 +30,13 @@
         android:name="com.smish.butler.ui.food.FoodFragment"
         android:label="@string/menu_food"
         tools:layout="@layout/fragment_food" />
+    <fragment
+        android:id="@+id/newsDetailFragment"
+        android:name="com.smish.butler.news.ui.NewsDetailFragment"
+        android:label="News detail"
+        tools:layout="@layout/fragment_news_detail" >
+        <argument
+            android:name="selected_article"
+            app:argType="com.smish.butler.news.data.model.topHeadlines.Article" />
+    </fragment>
 </navigation>

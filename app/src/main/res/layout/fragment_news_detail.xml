@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".news.ui.NewsDetailFragment">
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!--<TextView
+        android:id="@+id/tvTitle"
+        android:fontFamily="@font/droid_sans_bold"
+        android:textSize="@dimen/_18ssp"
+        android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvContent"
+        android:fontFamily="@font/droid_sans"
+        android:textSize="@dimen/_14ssp"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_12sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"/>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

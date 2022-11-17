@@ -14,4 +14,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="news_base_url">https://newsapi.org</string>
+
+    <string name="news_author_src">%s | %s</string>
 </resources>

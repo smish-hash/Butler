@@ -1,5 +1,6 @@
 package com.smish.butler.news.ui
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -8,9 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.smish.butler.R
 import com.smish.butler.databinding.LayoutNewsItemBinding
 import com.smish.butler.news.data.model.topHeadlines.Article
+import com.smish.butler.util.extensions.getFormattedText
 import com.smish.butler.util.extensions.loadImageWithGlide
 
-class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
+class NewsAdapter(val context: Context): RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     private val callback = object: DiffUtil.ItemCallback<Article>(){
         override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
@@ -23,6 +25,11 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
     }
 
     val differ = AsyncListDiffer(this, callback)
+
+    private var onItemClickListener: ((Article)->Unit)? = null
+    fun setOnItemClickListener(listener: (Article) -> Unit) {
+        onItemClickListener = listener
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
@@ -43,8 +50,16 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
         fun bind(article: Article) {
             binding.tvTitle.text = article.title
             binding.tvDescription.text = article.description
-            binding.tvAuthorDate.text = "${article.source?.name}"
+            val author = article.author
+            val src = article.source?.name
+            binding.tvAuthorSrc.text = context.resources.getFormattedText(R.string.news_author_src, author ?: "", src ?: "")
             binding.ivThumbnail.loadImageWithGlide(article.urlToImage ?: R.drawable.ic_round_photo_24)
+
+            binding.root.setOnClickListener {
+                onItemClickListener?.let {
+                    it(article)
+                }
+            }
         }
     }
 }
